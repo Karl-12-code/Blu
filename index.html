@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos incrustados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        .video-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #282c34;
+            padding: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 40%;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+        .btn-next {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 20px;
+            cursor: pointer;
+            text-align: center;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+        .btn-next:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <iframe id="videoFrame" src="https://pluto.tv/on-demand/series/5e3c1852360fab25879e7c18/season/1/episode/5e3c297e25ae563aca187df7?utm_source=plutotv&utm_medium=share&utm_campaign=1000201&utm_content=1000735&utm_content_description=pluto_share&referrer=copy-link" allowfullscreen></iframe>
+    </div>
+
+    <button class="btn-next" onclick="nextVideo()">Siguiente</button>
+
+    <script>
+        var videos = [
+            "https://pluto.tv/on-demand/series/5e3c1852360fab25879e7c18/season/1/episode/5e3c297e25ae563aca187df7?utm_source=plutotv&utm_medium=share&utm_campaign=1000201&utm_content=1000735&utm_content_description=pluto_share&referrer=copy-link",
+            "https://pluto.tv/on-demand/series/5e3c1852360fab25879e7c18/season/1/episode/5e3c28422790b73f94997d45?utm_source=plutotv&utm_medium=share&utm_campaign=1000201&utm_content=1000735&utm_content_description=pluto_share&referrer=copy-link",
+            "https://pluto.tv/on-demand/series/5e3c1852360fab25879e7c18/season/1/episode/5e3c294625ae563aca187dc3?utm_source=plutotv&utm_medium=share&utm_campaign=1000201&utm_content=1000735&utm_content_description=pluto_share&referrer=copy-link",
+            "https://pluto.tv/on-demand/series/5e3c1852360fab25879e7c18/season/1/episode/5e3c28712790b73f94997db8?utm_source=plutotv&utm_medium=share&utm_campaign=1000201&utm_content=1000735&utm_content_description=pluto_share&referrer=copy-link"
+        ];
+        var currentVideoIndex = 0;
+
+        function nextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            document.getElementById("videoFrame").src = videos[currentVideoIndex];
+        }
+    </script>
+
+</body>
+</html>
